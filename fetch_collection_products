@@ -1,0 +1,31 @@
+<div id="slideshow">
+  <div class="wrapper">
+    <div class="rslides_container">
+        <ul class="rslides" id="slider1">
+            {% assign _collection = collections['new-products'] %}
+           {% for product in collections[section.settings.feature_collection].products %}
+              <li class="slideshow-item">
+                  <a href="{{ product.url }}"><img src="{{  product.featured_image | img_url: 'medium' | format: 'jpg' }}" alt="{{ block.settings.slide_heading }}"></a>            
+                  <h3>{{ product.title }}</h3>
+                  <h4>{{ product.price | money | remove: '.00' }}</h4>
+                  <p>{{ product.description }}</p>
+                      {% include 'bootstp' %}
+              </li>
+
+            {% endfor %} 
+            </ul>
+        </div><!-- #slideshow-container -->
+    </div>
+</div><!-- #slideshow -->
+{% schema %}
+  {
+    "name": "collection789",
+    "settings": [
+        {
+            "type": "collection",
+            "id": "feature_collection",
+            "label": "Chose Collection to show on slideshow"
+        }
+    ]
+  }
+{% endschema %}
