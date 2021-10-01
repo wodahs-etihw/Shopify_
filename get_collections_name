@@ -1,0 +1,21 @@
+<ul>
+{% for collection in collections %}
+  <li>{{ collection.title | link_to: collection.url }}</li>
+{% endfor %}
+</ul>
+
+
+
+
+
+
+{
+    "name": "Sidebar",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "products_featured_collection",
+        "label": "Featured products in sidebar"
+      }
+    ]
+  },
