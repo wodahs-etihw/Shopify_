@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      .my_img {
+        
+      filter: brightness(50%);
+        
+     } 
+      
+    </style>  
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+ <div class="container-fluid mt-3">
+    <div class="row">
+      
+      {%- for collection in collections -%}
+      <div class="col-sm">
+         {%- if collection.image -%}
+         {%- assign collection_image = collection.image -%}
+         {%- elsif collection.products.first and collection.products.first.images != empty -%}
+         {%- assign collection_image = collection.products.first.featured_image -%}
+         {%- else -%}
+         {%- assign collection_image = blank -%}
+         {%- endif -%}
+
+          <a href="{{ collection.url }}">
+            <img class="my_img"  src="{{ collection_image | img_url: '480x' }}" alt="">
+            {{ collection.title }}
+          </a>
+      </div>
+      {%- endfor -%}
+  </div>
+</div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+{% comment  %}
+<ul>
+  {%- for collection in collections -%}
+    <li>
+      <!--
+        These control flow tags check to see if there is a featured image for a collection.
+        If there isn't one, then we assign the image from the first product in the collection.
+      -->
+      {%- if collection.image -%}
+        {%- assign collection_image = collection.image -%}
+      {%- elsif collection.products.first and collection.products.first.images != empty -%}
+        {%- assign collection_image = collection.products.first.featured_image -%}
+      {%- else -%}
+        {%- assign collection_image = blank -%}
+      {%- endif -%}
+
+      <a href="{{ collection.url }}">
+        <img src="{{ collection_image | img_url: '480x' }}" alt="">
+        {{ collection.title }}
+      </a>
+    </li>
+  {%- endfor -%}
+</ul>
+{% endcomment %}  
+
+
+
+
+{% schema %}
+  {
+    "name": "collection789",
+    "settings": [
+        {
+            "type": "collection",
+            "id": "feature_collection",
+            "label": "Chose Collection to show on slideshow"
+        }
+    ]
+  }
+{% endschema %}
