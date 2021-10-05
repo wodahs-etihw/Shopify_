@@ -1,0 +1,485 @@
+
+<?php $page="dashboard";    ?>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+		<title>Pre-Order</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/@shopify/polaris@5.0.0/dist/styles.css"
+			/>
+			<!-- CSS only -->
+			<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+			<!-- 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+			<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+			<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <title>Shop With Discount</title>
+
+    <style>
+        .first_div {
+            font-size:15px;
+        }
+
+        .first_cf {
+            padding-top:100px;
+        }
+
+        .Polaris-FooterHelp__Content {
+            border:0px!important;
+        }
+
+        #nav {
+            padding-right: 0px;
+            padding-left:0px;
+        }
+
+
+        /* toggle button start */
+        /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2c7315;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* toggle button ends */
+
+
+.body {
+
+   background-color:rgba(246, 246, 247, 1); 
+ }
+
+.div_with_toggle_btn{
+  padding:10px;
+}
+
+.div_with_toggle_btn  .col-8 {
+  font-size: 15px;
+  margin-top: 9px;
+}
+
+.Polaris-FooterHelp {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.theme_install_inst{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+
+.theme_install_inst .col-5 {
+  margin-top:10px;
+}
+
+.nav_b {
+  background-color:rgba(246, 246, 247, 1); 
+  margin-left:110px;
+}
+
+.bg_of_nav{
+  background-color:rgba(246, 246, 247, 1); 
+}
+
+
+.my_para {
+  font-size:15px;
+}
+
+.default_discount_value {
+  padding-bottom:30px;
+}
+
+.Polaris-Tabs__Title{
+  
+}
+
+.Polaris-Tabs__Tab.Polaris-Tabs__Tab--selected .Polaris-Tabs__Title {
+  border-bottom:none;
+}
+
+
+.anchor_for_link{
+  color:inherit;
+  text-decoration:none;
+}
+
+.Polaris-FooterHelp__Content {
+  border:0px;
+}
+
+
+    </style>
+
+
+
+</head>
+
+<body class="body" >
+
+<?php  include 'navigation.php' ?>
+
+<!-- <div class="container-fluid"  id="nav" > -->
+    <!-- nav start -->
+<!-- <div>
+  <div class="Polaris-Card">
+    <div>
+      <div class="Polaris-Tabs__Wrapper  bg_of_nav">
+        <div class="Polaris-Tabs Polaris-Tabs__TabMeasurer">
+          <li class="Polaris-Tabs__TabContainer" role="presentation"><button id="all-customers-1Measurer" role="tab" type="button" tabindex="-1" class="Polaris-Tabs__Tab" aria-selected="false"><span class="Polaris-Tabs__Title">All</span></button></li>
+          <li class="Polaris-Tabs__TabContainer" role="presentation"><button id="accepts-marketing-1Measurer" role="tab" type="button" tabindex="-1" class="Polaris-Tabs__Tab Polaris-Tabs__Tab--selected" aria-selected="true"><span class="Polaris-Tabs__Title">Accepts marketing</span></button></li>
+          <li class="Polaris-Tabs__TabContainer" role="presentation"><button id="repeat-customers-1Measurer" role="tab" type="button" tabindex="-1" class="Polaris-Tabs__Tab" aria-selected="false"><span class="Polaris-Tabs__Title">Repeat customers</span></button></li>
+          <li class="Polaris-Tabs__TabContainer" role="presentation"><button id="prospects-1Measurer" role="tab" type="button" tabindex="-1" class="Polaris-Tabs__Tab" aria-selected="false"><span class="Polaris-Tabs__Title">Prospects</span></button></li><button type="button" class="Polaris-Tabs__DisclosureActivator" aria-label="More tabs"><span class="Polaris-Tabs__Title"><span class="Polaris-Icon Polaris-Icon--colorSubdued Polaris-Icon--applyColor"><span class="Polaris-VisuallyHidden"></span><svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
+                  <path d="M6 10a2 2 0 1 1-4.001-.001A2 2 0 0 1 6 10zm6 0a2 2 0 1 1-4.001-.001A2 2 0 0 1 12 10zm6 0a2 2 0 1 1-4.001-.001A2 2 0 0 1 18 10z"></path>
+                </svg></span></span></button>
+        </div>
+        <ul role="tablist" class="Polaris-Tabs nav_b">
+          <li class="Polaris-Tabs__TabContainer" role="presentation"><button id="all-customers-1" role="tab" type="button" tabindex="-1" class="Polaris-Tabs__Tab" aria-selected="false" aria-controls="all-customers-content-1" aria-label="All customers"><span class="Polaris-Tabs__Title">Dashboard</span></button></li>
+          <li class="Polaris-Tabs__TabContainer" role="presentation"><button id="accepts-marketing-1" role="tab" type="button" tabindex="0" class="Polaris-Tabs__Tab Polaris-Tabs__Tab--selected" aria-selected="true" aria-controls="accepts-marketing-content-1"><span class="Polaris-Tabs__Title"> <a class="anchor_for_link"   href="analytics.php">Analytics</a></span></button></li>
+          <li class="Polaris-Tabs__TabContainer" role="presentation"><button id="repeat-customers-1" role="tab" type="button" tabindex="-1" class="Polaris-Tabs__Tab" aria-selected="false" aria-controls="repeat-customers-content-1"><span class="Polaris-Tabs__Title">settings</span></button></li>
+          <li class="Polaris-Tabs__TabContainer" role="presentation"><button id="prospects-1" role="tab" type="button" tabindex="-1" class="Polaris-Tabs__Tab" aria-selected="false" aria-controls="prospects-content-1"><span class="Polaris-Tabs__Title">Look and Feel</span></button></li>
+          <li class="Polaris-Tabs__DisclosureTab" role="presentation">
+            <div><button type="button" class="Polaris-Tabs__DisclosureActivator" aria-label="More tabs" tabindex="0" aria-controls="Polarispopover22" aria-owns="Polarispopover22" aria-expanded="false"><span class="Polaris-Tabs__Title"><span class="Polaris-Icon Polaris-Icon--colorSubdued Polaris-Icon--applyColor"><span class="Polaris-VisuallyHidden"></span><svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
+                      <path d="M6 10a2 2 0 1 1-4.001-.001A2 2 0 0 1 6 10zm6 0a2 2 0 1 1-4.001-.001A2 2 0 0 1 12 10zm6 0a2 2 0 1 1-4.001-.001A2 2 0 0 1 18 10z"></path>
+                    </svg></span></span></button></div>
+          </li>
+        </ul>
+      </div>
+      <div class="Polaris-Tabs__Panel Polaris-Tabs__Panel--hidden" id="all-customers-content-1" role="tabpanel" aria-labelledby="all-customers-1" tabindex="-1"></div>
+   
+    -->
+   
+      <!-- <div class="Polaris-Tabs__Panel" id="accepts-marketing-content-1" role="tabpanel" aria-labelledby="accepts-marketing-1" tabindex="-1">
+        <div class="Polaris-Card__Section">
+          <div class="Polaris-Card__SectionHeader">
+            <h3 aria-label="Accepts marketing" class="Polaris-Subheading">Accepts marketing</h3>
+          </div>
+          <p>Tab 1 selected</p>
+        </div>
+      </div> -->
+
+
+
+      <!-- <div class="Polaris-Tabs__Panel Polaris-Tabs__Panel--hidden" id="repeat-customers-content-1" role="tabpanel" aria-labelledby="repeat-customers-1" tabindex="-1"></div>
+      <div class="Polaris-Tabs__Panel Polaris-Tabs__Panel--hidden" id="prospects-content-1" role="tabpanel" aria-labelledby="prospects-1" tabindex="-1"></div>
+    </div>
+  </div>
+
+  <div id="PolarisPortalsContainer">
+    <div data-portal-id="popover-Polarisportal11"></div>
+  </div>
+</div> -->
+
+
+    <!-- nav ends -->
+<!-- </div> -->
+
+
+
+<!-- First Starts -->
+
+<div class="container  first_cf">
+  <div class="row">
+    <div class="col-4">
+        <h2>Shop With Discount</h2>
+        <p class="first_div" > Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolores deserunt laborum esse similique, 
+            porro fuga iste reprehenderit molestiae harum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, esse.
+        
+        </p>
+    </div>
+    <div class="col-8">
+      <!-- card -->
+      <div>
+  <div class="Polaris-Card  div_with_toggle_btn">
+      <!-- again grid system -->
+      <div class="container">
+          <div class="row">
+            <div class="col-8 ">
+              <p class="my_para" >Ship with Discount is Enabled</p>
+              
+           </div>
+          <div class="col-4">
+            <!-- toggle Button -->
+            <!-- Rounded switch -->
+            <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+            </label>
+            <!-- toggle button ends -->
+            
+          </div>
+  </div>
+</div>
+ <!-- again grid system ends -->
+
+    <!-- <div class="Polaris-Card__Header">
+      <h2 class="Polaris-Heading">Online store dashboard</h2>
+    </div>
+    <div class="Polaris-Card__Section">
+      <p>View a summary of your online store’s performance.</p>
+    </div> -->
+  </div>
+  <div id="PolarisPortalsContainer"></div>
+</div>
+ <!-- card ends -->
+    </div>
+  </div>
+<hr>
+</div>
+
+<!-- First Ends -->
+
+
+
+<!-- Second Starts -->
+<div class="container  first_cf">
+  <div class="row">
+    <div class="col-4">
+        <h2>Default Discount Value</h2>
+        <p class="first_div" > Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolores deserunt laborum esse similique, 
+            porro fuga iste reprehenderit molestiae harum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, esse.
+        
+        </p>
+    </div>
+    <div class="col-8">
+      <!-- card -->
+      <div>
+  <div class="Polaris-Card  default_discount_value">
+    <div class="Polaris-Card__Header">
+      <h2 class="Polaris-Heading">
+        <p class="my_para" >Default Discount Value</p>
+      </h2>
+    </div>
+    <div class="Polaris-Card__Section">
+      <!-- select box -->
+
+      <div>
+  <div class="">
+    <!-- <div class="Polaris-Labelled__LabelWrapper">
+      <div class="Polaris-Label"><label id="PolarisSelect6Label" for="PolarisSelect6" class="Polaris-Label__Text">Date range</label></div>
+    </div> -->
+    <div class="Polaris-Select"><select id="PolarisSelect6" class="Polaris-Select__Input" aria-invalid="false">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <div class="Polaris-Select__Content" aria-hidden="true"><span class="Polaris-Select__SelectedOption">1</span><span class="Polaris-Select__Icon"><span class="Polaris-Icon"><span class="Polaris-VisuallyHidden"></span><svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
+              <path d="m10 16-4-4h8l-4 4zm0-12 4 4H6l4-4z"></path>
+            </svg></span></span></div>
+      <div class="Polaris-Select__Backdrop"></div>
+    </div>
+  </div>
+  <div id="PolarisPortalsContainer"></div>
+</div>
+
+
+
+
+      <!-- Select box ends -->
+    </div>
+  </div>
+  <div id="PolarisPortalsContainer"></div>
+</div>
+
+
+      <!-- card ends -->
+    </div>
+  </div>
+<hr>
+</div>
+<!-- Second Ends -->
+
+
+
+<!-- Third Starts -->
+<div class="container  first_cf  ">
+  <div class="row">
+    <div class="col-4">
+        <h2>Theme Install Instruction</h2>
+        <p class="first_div" > Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nostrum.</p>
+    </div>
+    <div class="col-8">
+      <!-- card -->
+      <div>
+  <div class="Polaris-Card  theme_install_inst">
+    <!-- container start -->
+    <div class="container" >
+      <div class="row">
+        <div class="col-5">
+        <p class="my_para" >Theme Install Instruction</p>
+        </div>
+        <div class="col-7">
+          <!-- button -->
+          <div><button class="Polaris-Button" type="button"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Open Instructions</span></span></button>
+          <div id="PolarisPortalsContainer"></div>
+          </div>
+          <!-- button ends -->
+        </div>
+      </div>
+
+    </div>
+    <!-- container ends -->
+
+  </div>
+  <div id="PolarisPortalsContainer"></div>
+</div>
+
+
+      <!-- card ends -->
+    </div>
+  </div>
+
+</div>
+<!-- Third Ends -->
+
+<div class="container">
+<div>
+  <div class="Polaris-FooterHelp">
+    <div class="Polaris-FooterHelp__Content">
+      <!-- <div class="Polaris-FooterHelp__Icon"><span class="Polaris-Icon Polaris-Icon--colorHighlight Polaris-Icon--applyColor"><span class="Polaris-VisuallyHidden"></span><svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true"> -->
+            <!-- <path fill-rule="evenodd" d="M18 10a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-9 3a1 1 0 1 0 2 0v-2a1 1 0 1 0-2 0v2zm0-6a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"></path>
+          </svg></span></div> -->
+      <div class="Polaris-FooterHelp__Text">Need Help ?  <a target="_blank" class="Polaris-Link" href="https://help.shopify.com/manual/orders/fulfill-orders" rel="noopener noreferrer" data-polaris-unstyled="true">FAQ | Privacy Policy | Learn more about  fulfilling orders<span class="Polaris-Link__IconLockup"><span class="Polaris-Link__IconLayout"><span class="Polaris-Icon"><span class="Polaris-VisuallyHidden">(opens a new window)</span></span></span></span></a></div>
+    </div>
+  </div>
+  <div id="PolarisPortalsContainer"></div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script>
+    $(document).ready(function() {
+        $("#hh1").click(function() {
+            alert("Jquery is working");
+        });
+
+        // $('.Polaris-Tabs__TabContainer').hover(function(){
+        //   $("#dashboard").css("border", "2px solid red");
+        //   $('#analytics').css("border", "2px solid yellow");
+        //   $('#settings').css("border", "2px solid red");
+        //   $('#lookandfeel').css("border","2px solid red");
+        //  }); 
+         $("#dashboard").hover(function(){
+             $(this).css("border-bottom","2px solid green");
+         }, function(){
+             $(this).css("border-bottom","2px solid red");
+         }
+         );
+
+
+        //  $('.Polaris-Tabs__TabContainer').on('click',function(){
+        //       $(this).css("border","2px solid red");
+        //  });
+
+         $('.Polaris-Tabs__Title').hover(
+          function(){
+           $(this).css("border-bottom","2px solid green");
+
+         },
+         function(){
+           $(this).css("border-bottom","0px solid #dfe3e8");
+         }
+         );
+
+         $(".anchor_for_link").hover(function(){
+            $(this).css({"color":"inherit","text-decoration":"none"});
+         });
+
+       
+
+
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
