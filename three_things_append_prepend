@@ -1,0 +1,22 @@
+<script>
+
+  console.log("I am working on footer");
+ $.ajax({
+           url:"https://appsworld2.xyz/deviago/ship_with_discount/get_data.php?oauth_token=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&shop=ritesh-teststore.myshopify.com&page=lookandfeel",
+           type: "GET",
+            dataType: "json",
+           success: function(res){
+             console.log(res);
+             $.each(res , function(index , value){
+               var custom_html = value.check_html;
+               jQuery('.product-single__meta .product-form__cart-submit').before(custom_html);
+             })
+//              var b=JSON.stringify(res);
+// //              console.log(b)
+//                 str = b.replace(/\\/g, '');
+//     			console.log(str);
+             
+          }
+        }
+       )
+ </script>
