@@ -2,7 +2,7 @@
 
   console.log("I am working on footer");
  $.ajax({
-           url:"https://appsworld2.xyz/deviago/ship_with_discount/get_data.php?oauth_token=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&shop=ritesh-teststore.myshopify.com&page=lookandfeel",
+           url:"https://appsworld2.xyz/deviago/scom&page=lookandfeel",
            type: "GET",
             dataType: "json",
            success: function(res){
